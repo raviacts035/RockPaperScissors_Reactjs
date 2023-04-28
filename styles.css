@@ -1,0 +1,85 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+nav{
+    border: 2px outset black;
+    /* text-align: center; */
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-around;
+}
+.nav-heading{
+    font-size: larger;
+    color: orange;
+}
+main{
+    height: 98vh;
+    width: 99vw;
+    border: 1px solid red;
+}
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: inherit;
+    border: 2px solid black;
+    background-color: lightslategray;
+    text-align: center;
+    border-radius: 5px;
+}
+footer:hover{
+    background-color: slategray;
+}
+.card{
+    width: 180px;
+    height: 220px;
+    border-radius: 15px;
+    text-align: center;
+    background-color: orange;
+    border: 10px double orangered;
+}
+.dLine{
+    border-left: 2px solid red;
+}
+
+.space{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    border: 2px solid red;
+}
+.cardSpace{
+    border: 2px dotted black;
+    margin: 10px 10px;
+    width: 20vw;
+    min-width: 150px;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.btn-grup{
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.btn-grup button{
+    padding: 5px 25px;
+    border-radius: 5px;
+    box-shadow: red;
+}
+.btn-grup+h3{
+    text-align: center;
+}
+
+.resultUser{
+    border: 2px dotted orangered;
+    position: absolute;
+    top: 5%;
+    left: 40%;
+    background-color: aqua;
+    z-index: 9;
+    padding: 80px 100px;
+}

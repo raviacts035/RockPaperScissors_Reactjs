@@ -1,27 +1,40 @@
 *{
     padding: 0;
     margin: 0;
+    color: whitesmoke;
+    /* overflow: hidden; */
+}
+
+body{
+    background-color: #222;
 }
 
 nav{
-    border: 2px outset black;
-    /* text-align: center; */
-    padding: 10px 0px;
+    padding: 10px 25px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: baseline;
+    border-radius: 15px;
+    margin: 10px 0px;
+}
+ul a{
+    text-decoration: none;
+    color: lightslategray;
 }
 .nav-heading{
-    font-size: larger;
-    color: orange;
+    font-size:4rem;
+    text-shadow: blue;
+    color: rgb(60, 60, 166);
+    /* color: orange; */
 }
 main{
-    height: 98vh;
-    width: 99vw;
-    border: 1px solid red;
+    border: 1px solid slategrey;
+    border-radius: 25px;
+    backdrop-filter: invert(20%);
+    overflow: hidden;
 }
+
 footer{
-    position: absolute;
-    bottom: 0px;
     width: inherit;
     border: 2px solid black;
     background-color: lightslategray;
@@ -37,17 +50,27 @@ footer:hover{
     border-radius: 15px;
     text-align: center;
     background-color: orange;
-    border: 10px double orangered;
+    border: 8px double orangered;
+    animation: circle 1s linear 1;
+}
+.hLine{
+border-top: 2px solid black;
 }
 .dLine{
-    border-left: 2px solid red;
+   border-left: 1px dashed blanchedalmond;
 }
-
+.wel{
+    text-align: center;
+}
 .space{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    border: 2px solid red;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+    padding: 40px;
+    /* border: 2px solid red; */
+    
 }
 .cardSpace{
     border: 2px dotted black;
@@ -56,30 +79,69 @@ footer:hover{
     min-width: 150px;
     height: 300px;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
 }
+.cardSpace img{
+    height: 150px;
+    border-radius: 25px;
+}
+
 .btn-grup{
     display: flex;
-    text-align: center;
-    justify-content: space-around;
+    gap: 10%;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 30px 0px;
+    /* border: 2px solid red; */
 }
 
 .btn-grup button{
-    padding: 5px 25px;
-    border-radius: 5px;
-    box-shadow: red;
+    overflow: hidden;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
 }
-.btn-grup+h3{
+.btn-grup button img{
+    height: inherit;
+    width: inherit;
+}
+.btn-grup+div{
     text-align: center;
+    background-color: slategray;
+    padding: 10px 30px;
+    border-radius: 15px;
 }
 
 .resultUser{
     border: 2px dotted orangered;
-    position: absolute;
-    top: 5%;
-    left: 40%;
-    background-color: aqua;
+    /* position: absolute;
+    bottom: 0; */
+    left: 45%;
+    float: left;
+    height: 20px;
+    background-color: black;
     z-index: 9;
-    padding: 80px 100px;
+    padding: 5px 10px;
 }
+
+.cir{
+    padding: 40px 40px;
+    border-radius: 50%;
+    background-color: blue;
+}
+@keyframes circle{
+    0%{
+      transform:rotate(60deg)
+      scale(2)
+                
+    }
+    100%{
+      transform:rotate(-360deg)
+      scale(1/2)
+    }
+  }
+
+
+  /* translate(-165px) */

@@ -5,36 +5,38 @@ const Paper=require("./assets/Paper.jpg")
 const Rock=require("./assets/Rock.jpg")
 const Scissor=require("./assets/Scissor.jpg")
 
-
 const Body=()=>{
     const [userPiK,setUserPik]=useState(null)
     const [sysPik,setSysPik]=useState(null)
-    const [userWon, setUserWon]=useState(false)
-    const [drawMatch,setDrawMatch]=useState(false)
     const dList=["Rock","Paper","Scissor"];
     const [userPoint,setUserPoints]=useState(0)
     const [sysPoint,setSysPoints]=useState(0)
+    const [message,setMsg]=useState("let's go..")
 
-    
     function sysgen(){
         let x=dList[Math.floor(Math.random()*3)]
         setSysPik(x)
     }
-
-    function action(input){
-        setUserPik(input)
-        setDrawMatch(false)
-        setUserWon(false)
-        setTimeout(sysgen(),6000);
-        //Draw Match
+    //use
+    useEffect(()=>{
+        if (!userPiK) return
         if(userPiK==sysPik){
-            setDrawMatch(true)
-            console.log()
+            setMsg("Oops, Draw")
             return
         }
-        let x=whoWon(userPiK,sysPik)
-        setUserWon(whoWon(userPiK,sysPik))
-        if(x) setUserPoints(userPoint+1)
+        if (whoWon(userPiK,sysPik)) {
+            setUserPoints(userPoint+1)
+            setMsg("+1 Points to User")
+        }
+        else{
+            setSysPoints(sysPoint+1)
+            setMsg("+1 Points to System")
+        }
+        console.log("useEffect = "+message)
+    },[sysPik,userPiK])
+    function action(input){
+        setUserPik(input)
+        sysgen()
     }
     return(
         <>
@@ -47,8 +49,7 @@ const Body=()=>{
                     </div>
                     <img src={cardPick(userPiK)}/>
                 </div> 
-                {/* <div className="dLine"><img src={require("./assets/umpire.jpg")}/></div> */}
-            {(userWon)?<ResultUser/>:drawMatch?<ResultDraw/>:<ResultSystem/>}
+                <DialogBox val={message}/>
                 <div className="cardSpace" id="sysCard">
                 <div>
                     <h2>System</h2>
@@ -57,52 +58,46 @@ const Body=()=>{
                 <img src={cardPick(sysPik)}/>
                 </div>
             </div>
-        {/* <hr></hr> */}
+        {(userPoint>=3 || sysPoint>=3)?<GameOver {...{userPoint,sysPoint}}/>:""}
         <div className="btn-grup">
             <button onClick={()=>{action("Rock")}} id="rock"><img src={require("./assets/rock_btn.jpg")}/></button>
             <button onClick={()=>{action("Paper")}}id="paper"><img src={require("./assets/paper_btn.jpg")}/></button>
             <button onClick={()=>{action("Scissor")}} id="Scissor"><img src={require("./assets/Scissor_btn.jpg")}/></button>
         </div>
-            <div>Click on Your Choice</div>
         </>
     )
 }
 
-
 //cards Model
-const Card=(props)=>{
-    let url="./assets/"+props.val+".jpg"
-    
+const DialogBox=(p)=>{
+    return (
+    <>
+    <div className="resultUser"><span>{p.val}</span></div>
+    </>)
+}
+
+const GameOver=({userPoint,sysPoint})=>{
+    let msg=""
+    if (userPoint>sysPoint){
+        msg="You Won the Game"
+    }
+    else{
+        msg="You LOST the Game"
+    }
     return(
         <>
         <div className="card">
-            <h2>{props.val}</h2>
-            <img src="assets/Roc.jpg"/>
+            <h2>Game Over!!</h2>
+            <h3>{msg}</h3>
+            <span>{userPoint+" : "+sysPoint}</span>
+            <button id="playAgain" onClick={()=>{
+                window.location.reload()
+            }}>Play Again</button>
         </div>
         </>
     )
 }
-const ResultUser=()=>{
-    return (<>
-    <div className="resultUser">
-    <h2>You Won : {`)`}</h2>
-    </div>
-    </>)
-}
-const ResultSystem=()=>{
-    return (<>
-    <div className="resultUser">
-    <h2>Oops, You Lost </h2>
-    </div>
-    </>)
-}
-const ResultDraw=()=>{
-    return (<>
-    <div className="resultUser">
-    <h2>Draw Match</h2>
-    </div>
-    </>)
-}
+
 // Rock
 // Paper
 // Scissor
@@ -128,6 +123,12 @@ function cardPick(x){
     }
     else{
         return Scissor
+    }
+}
+
+function gameOver(userPoint,sysPoint){
+    if(userPoint>=3 || sysPoint>=3){
+        return 
     }
 }
 

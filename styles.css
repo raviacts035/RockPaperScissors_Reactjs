@@ -1,21 +1,22 @@
 *{
     padding: 0;
     margin: 0;
-    color: whitesmoke;
     /* overflow: hidden; */
 }
 
 body{
     background-color: #222;
+    /* height: 96vh; */
 }
 
 nav{
-    padding: 10px 25px;
     display: flex;
+    padding: 10px 25px;
     justify-content: space-between;
     align-items: baseline;
     border-radius: 15px;
     margin: 10px 0px;
+    height: 10%;
 }
 ul a{
     text-decoration: none;
@@ -29,6 +30,8 @@ ul a{
 }
 main{
     border: 1px solid slategrey;
+    width:100%;
+    /* height: 80%; */
     border-radius: 25px;
     backdrop-filter: invert(20%);
     overflow: hidden;
@@ -45,14 +48,31 @@ footer:hover{
     background-color: slategray;
 }
 .card{
-    width: 180px;
-    height: 220px;
+    position: absolute;
+    bottom: 10%;
+    left: 38%;
     border-radius: 15px;
+    width: 20%;
+    padding: 50px;
     text-align: center;
-    background-color: orange;
-    border: 8px double orangered;
+    color: black;
+    background-color: lightslategray;
+    border: 2px solid slategray;
     animation: circle 1s linear 1;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
 }
+.card button{
+    padding: 10px 50px;
+    background-color: blue;
+    border-radius: 15px;
+}
+
+.card button:hover{
+    background-color: rgb(112, 90, 234);
+}
+
 .hLine{
 border-top: 2px solid black;
 }
@@ -67,21 +87,40 @@ border-top: 2px solid black;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 5%;
-    padding: 40px;
     /* border: 2px solid red; */
-    
 }
+#userCard{
+    flex-basis: 1/3;
+}
+#sysCard{
+    flex-basis: 1/3;
+}
+.resultUser{
+    width: 20vw;
+    min-width: 200px;
+    text-align: center;
+    flex-basis: 1/3;
+}
+.resultUser span{
+    border: 2px solid slategray;
+    height: 20px;
+    border-radius: 10px;
+    background-color: black;
+    padding: 5px 10px;
+    color: whitesmoke;
+}
+
 .cardSpace{
     border: 2px dotted black;
     margin: 10px 10px;
-    width: 20vw;
-    min-width: 150px;
+    /* width: 20vw; */
+    min-width: 250px;
     height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    overflow: hidden;
 }
 .cardSpace img{
     height: 150px;
@@ -99,32 +138,27 @@ border-top: 2px solid black;
 
 .btn-grup button{
     overflow: hidden;
+    box-shadow: 5px;
     border-radius: 50%;
     height: 80px;
     width: 80px;
 }
+.btn-grup button:hover{
+    scale: 1.1;
+}
+
 .btn-grup button img{
     height: inherit;
     width: inherit;
 }
-.btn-grup+div{
+footer div{
     text-align: center;
     background-color: slategray;
     padding: 10px 30px;
     border-radius: 15px;
+    height: 5%;
 }
 
-.resultUser{
-    border: 2px dotted orangered;
-    /* position: absolute;
-    bottom: 0; */
-    left: 45%;
-    float: left;
-    height: 20px;
-    background-color: black;
-    z-index: 9;
-    padding: 5px 10px;
-}
 
 .cir{
     padding: 40px 40px;
@@ -133,14 +167,12 @@ border-top: 2px solid black;
 }
 @keyframes circle{
     0%{
-      transform:rotate(60deg)
-      scale(2)
+      transform:scale(2)
                 
     }
     100%{
-      transform:rotate(-360deg)
-      scale(1/2)
-    }
+      transform:scale(1/2)
+  }
   }
 
 

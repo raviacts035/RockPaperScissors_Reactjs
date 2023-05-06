@@ -1,8 +1,8 @@
 # RockPaperScissors_Reactjs
 ## player 1 : 
 User
-+ Have to click on one Choice.
-+ 
++ Have to click on one Choice
+
 
 ## player 2 :
 System

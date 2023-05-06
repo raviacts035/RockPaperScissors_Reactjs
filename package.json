@@ -24,5 +24,13 @@
   },
   "devDependencies": {
     "process": "^0.11.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raviacts035/RockPaperScissors_Reactjs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/raviacts035/RockPaperScissors_Reactjs/issues"
+  },
+  "homepage": "https://github.com/raviacts035/RockPaperScissors_Reactjs#readme"
 }
